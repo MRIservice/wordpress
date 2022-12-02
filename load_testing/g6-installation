@@ -1,0 +1,17 @@
+#! /usr/bin/bash
+sudo -s
+apt update && apt -y upgrade
+gpg -k
+gpg --no-default-keyring --keyring /usr/share/keyrings/k6-archive-keyring.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C5AD17C747E3415A3642D57D77C6C491D6AC1D69
+echo "deb [signed-by=/usr/share/keyrings/k6-archive-keyring.gpg] https://dl.k6.io/deb stable main" |  tee /etc/apt/sources.list.d/k6.list
+apt-get update
+mkdir g6-load
+cd g6-load
+touch servicemri2.js
+touch web2.servicemri2.js
+touch web3.servicemri2.js
+chmod +x *.js
+
+##### requires user input ###############
+apt-get install k6
+

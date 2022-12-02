@@ -1,0 +1,28 @@
+This experiment started when I noticed inconsistent Google PageSpeed results on WordPress web sites.  I used a G6 to load test servers.  I got up to 650 vus for a 200 second duration.  Anything above that started dropping requests.
+
+None of the instances even got above 35% so they were never in what would be considered to be in a busting state and none of the servers ramped up and down in a consistent manner the way they should have.  
+
+However the results were not consistant and for that reason this test is best run on instances in the cloud.
+
+It should also be noted that the t2.small should have shown a much lower peaks than the t2.micros.
+
+I was not attempting to loadballance or autoscale instances.  This was not about saving money but comparing CPU/instance performance(CPUUtilization).  As a matter of fact based on this test I would end up launching more instances before the load even got to 30%
+
+I do not have the traffic/load for a C4 this point.  AWS would suggest a managed lightSail WP deployment.  This site is using CloudFront through a plugin but I can not confirm how big of an impact hosting static content in buckets or edge locations is making. 
+
+Ultimately the largest cost savings are by managing your own server deployments and sizing resources accordingly.  Understanding what can be expected from AWS resources is the first step and so far it appears that AWS is really not performing consistently.
+
+Cloud bursting is a configuration method that uses cloud computing resources whenever on-premises infrastructure reaches peak capacity
+
+Burstable
+
+
+
+
+
+
+Conclusion:
+
+The data shows running a standalone db server in wordpress does not have a significant performance impact.
+
+PageSpeed insights performance appears to be asociated with wordpress, Elementor page builder and render blocking js associted with it.
